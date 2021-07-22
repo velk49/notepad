@@ -107,6 +107,9 @@ padding: 0 5px;
     spellcheck <input type="checkbox" id="spell" onclick="spell()">
   </td>
   <td>
+    align right <input type="checkbox" id="ac" onclick="alignChange()">
+  </td>
+  <td>
     <input type="button" value="scrollup ❎" id="offon" onclick="offon();">
   </td>
 </tr>
@@ -182,11 +185,19 @@ document.getElementById("input").spellcheck = true;
 document.getElementById("input").spellcheck = false;
   }
 }
+
+function alignChange() {
+  var checkBox = document.getElementById("ac");
+  if (checkBox.checked == true){
+document.getElementById("markdown").dir = 'rtl';
+  } else {
+document.getElementById("markdown").dir = 'ltr';
+  }
+}
   
-  
-  function convert() {
-    document.getElementById('markdown').innerHTML = 
-    marked(document.getElementById('input').value);
-   }
+function convert() {
+  document.getElementById('markdown').innerHTML = 
+  marked(document.getElementById('input').value);
+ }
 </script>
 </html>
